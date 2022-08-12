@@ -1,0 +1,36 @@
+@import './shared/index.css';
+@import './fonts.css';
+@import './game/index.css';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #181216;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 6rem;
+  text-shadow: 0 0 0.5rem #6300bd, 0 0 0.5rem #ff4fdb;
+  color: #ff4fdb;
+  font-family: 'Retrolight', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  transition: text-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+h1:hover {
+  text-shadow: 0 0 1rem #6300bd, 0 0 1rem #ff4fdb;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}

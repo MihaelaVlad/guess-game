@@ -1,0 +1,26 @@
+.button {
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 4rem;
+  color: #ff4fdb;
+  border-radius: 0.5rem;
+  border: 5px solid transparent;
+  text-shadow: 0 0 0.5rem #6300bd, 0 0 0.5rem #ff4fdb;
+  background: linear-gradient(#181216, #181216),
+    linear-gradient(95deg, #ff4fdb 0%, #6300bd 100%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 0 1rem #ff4fdb, 0 0 4rem #6300bd;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out,
+    text-shadow 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: linear-gradient(#181216, #181216),
+    linear-gradient(95deg, #6300bd 0%, #ff4fdb 100%);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  box-shadow: 0 0 1rem #6300bd, 0 0 1rem #ff4fdb;
+  text-shadow: 0 0 1rem #6300bd, 0 0 1rem #ff4fdb;
+}
