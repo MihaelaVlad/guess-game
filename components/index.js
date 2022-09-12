@@ -5,25 +5,22 @@ import { Howl, Howler } from 'howler';
 if (typeof window !== 'undefined') {
   // game
   let randomNumber = Math.floor(Math.random() * 100) + 1;
-
   const guesses = document.getElementById('guesses');
   const lastResult = document.getElementById('lastResult');
   const lowOrHigh = document.getElementById('lowOrHigh');
-
   const submitGuess = document.getElementById('submitGuess');
   const guess = document.getElementById('guess');
   const resetGame = document.getElementById('resetGame');
-
   let guessesCount = 1;
 
   const checkGuess = (event) => {
     event.preventDefault();
     const guessPlayer = Number(guess.value);
 
-    if (guessPlayer === 1) {
-      guesses.textContent = 'Your previous guesses: ';
+    let message = 'Your previous guesses: ';
+    if (guessesCount === 1) {
+      guesses.textContent = message;
     }
-
     guesses.textContent += guessPlayer + ' ';
 
     let messageGuess = '';
@@ -75,7 +72,7 @@ if (typeof window !== 'undefined') {
   resetGame.addEventListener('click', resetGuessGame);
 
   // music
-  var backgroundMusic = new Howl({
+  let backgroundMusic = new Howl({
     src: ['Boss-Time.mp3'],
     loop: true,
     volume: 0.35,
