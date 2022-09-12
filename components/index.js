@@ -35,12 +35,12 @@ if (typeof window !== 'undefined') {
       lowOrHigh.textContent = '';
       gameOver();
     } else {
-      messageGuess = 'You lost! Try again!';
+      lastResult.textContent = 'Try again';
 
       if (guessPlayer < randomNumber) {
         lowOrHigh.textContent = 'Your guess was too low!';
       } else if (guessPlayer > randomNumber) {
-        lowOrHigh.textContent = 'Your guess was to high!';
+        lowOrHigh.textContent = 'Your guess was too high!';
       }
     }
 
