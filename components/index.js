@@ -1,7 +1,100 @@
 import * as THREE from '/node_modules/three/build/three.module.js';
+import { Howl, Howler } from 'howler';
 // import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls';
 
 if (typeof window !== 'undefined') {
+  // game
+  let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  const guesses = document.getElementById('guesses');
+  const lastResult = document.getElementById('lastResult');
+  const lowOrHigh = document.getElementById('lowOrHigh');
+
+  const submitGuess = document.getElementById('submitGuess');
+  const guess = document.getElementById('guess');
+  const resetGame = document.getElementById('resetGame');
+
+  let guessesCount = 1;
+
+  const checkGuess = (event) => {
+    event.preventDefault();
+    const guessPlayer = Number(guess.value);
+
+    if (guessPlayer === 1) {
+      guesses.textContent = 'Your previous guesses: ';
+    }
+
+    guesses.textContent += guessPlayer + ' ';
+
+    let messageGuess = '';
+    if (guessPlayer === randomNumber) {
+      messageGuess = '🏆 You won 🏆';
+      lastResult.textContent = messageGuess;
+      lowOrHigh.textContent = '';
+      gameOver();
+    } else if (guessesCount === 10) {
+      messageGuess = '💣 GAME OVER 💣';
+      lastResult.textContent = messageGuess;
+      lowOrHigh.textContent = '';
+      gameOver();
+    } else {
+      messageGuess = 'You lost! Try again!';
+
+      if (guessPlayer < randomNumber) {
+        lowOrHigh.textContent = 'Your guess was too low!';
+      } else if (guessPlayer > randomNumber) {
+        lowOrHigh.textContent = 'Your guess was to high!';
+      }
+    }
+
+    guessesCount++;
+    guess.value = '';
+    guess.focus();
+  };
+  submitGuess.addEventListener('click', checkGuess);
+
+  const gameOver = () => {
+    guess.disabled = true;
+    submitGuess.disabled = true;
+    resetGame.innerText = 'Start game';
+    resetGame.addEventListener('click', resetGuessGame);
+  };
+
+  const resetGuessGame = () => {
+    guessesCount = 1;
+    const resetSpans = document.querySelectorAll('.results span');
+    for (const resetSpan of resetSpans) {
+      resetSpan.innerText = '';
+    }
+    guess.disabled = false;
+    submitGuess.disabled = false;
+    guess.value = '';
+    guess.focus();
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+  };
+  resetGame.addEventListener('click', resetGuessGame);
+
+  // music
+  var backgroundMusic = new Howl({
+    src: ['Boss-Time.mp3'],
+    loop: true,
+    volume: 0.35,
+  });
+
+  const buttonMusicPlay = document.getElementById('musicPlay');
+  const buttonMusicPause = document.getElementById('musicPause');
+
+  buttonMusicPause.addEventListener('click', function () {
+    backgroundMusic.pause();
+  });
+
+  buttonMusicPlay.addEventListener('click', function () {
+    backgroundMusic.play();
+  });
+
+  backgroundMusic.play();
+
+  // 3d graphics
   let scene = new THREE.Scene();
   let camera = new THREE.PerspectiveCamera(
     100,

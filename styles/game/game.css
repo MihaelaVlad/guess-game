@@ -2,3 +2,38 @@
   position: absolute;
   top: 0;
 }
+
+.guess-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  background: linear-gradient(to left, #000000c7, #000000c7 50%, #000000c7 75%);
+  padding: 3rem 0;
+  border: 1px solid #ff4fdb;
+}
+
+.button-secondary {
+  margin-top: 6rem;
+}
+
+.input {
+  text-align: center;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #ff4fdb;
+  padding: 1rem 0;
+}
+
+.last-result {
+  font-family: 'Retrolight', sans-serif;
+  font-size: 2.5rem;
+}

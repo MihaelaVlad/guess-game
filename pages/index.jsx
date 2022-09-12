@@ -8,7 +8,11 @@ export default function Home() {
       <Head>
         <title>Guess Game</title>
         <meta name="description" content="Guees Game"></meta>
-        <link rel="icon" href="/favicon.ico"></link>
+        <link
+          rel="shortcut icon"
+          href="/images/favicon.png"
+          type="image/x-icon"
+        ></link>
       </Head>
 
       <main className="content">

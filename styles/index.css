@@ -5,7 +5,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  background-color: #181216;
+  background: linear-gradient(to bottom, #14040f 0%, #030203 50%, #020202 100%);
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
@@ -13,15 +14,18 @@ body {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 3rem;
   text-shadow: 0 0 0.5rem #6300bd, 0 0 0.5rem #ff4fdb;
   color: #ff4fdb;
   font-family: 'Retrolight', sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
   transition: text-shadow 0.3s ease-in-out;
   cursor: pointer;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 h1:hover {
@@ -33,4 +37,34 @@ h1:hover {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+}
+
+.play-button {
+  background-color: #ff4fdb;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  border: 0;
+}
+
+.pause-button {
+  background-color: #31d7fa;
+  cursor: pointer;
+  height: 3rem;
+  width: 3rem;
+  border: 0;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
 }
