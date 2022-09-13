@@ -28,11 +28,13 @@ if (typeof window !== 'undefined') {
       messageGuess = '🏆 You won 🏆';
       lastResult.textContent = messageGuess;
       lowOrHigh.textContent = '';
+      wonGameMusic.play();
       gameOver();
     } else if (guessesCount === 10) {
       messageGuess = '💣 GAME OVER 💣';
       lastResult.textContent = messageGuess;
       lowOrHigh.textContent = '';
+      lostGameMusic.play();
       gameOver();
     } else {
       lastResult.textContent = 'Try again';
@@ -72,7 +74,7 @@ if (typeof window !== 'undefined') {
   resetGame.addEventListener('click', resetGuessGame);
 
   // music
-  let backgroundMusic = new Howl({
+  const backgroundMusic = new Howl({
     src: ['Boss-Time.mp3'],
     loop: true,
     volume: 0.35,
@@ -90,6 +92,16 @@ if (typeof window !== 'undefined') {
   });
 
   backgroundMusic.play();
+
+  const wonGameMusic = new Howl({
+    src: ['game-win.wav'],
+    volume: 0.8,
+  });
+
+  const lostGameMusic = new Howl({
+    src: ['death-sound.mp3'],
+    volume: 1.5,
+  });
 
   // 3d graphics
   let scene = new THREE.Scene();
