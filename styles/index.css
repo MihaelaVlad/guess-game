@@ -6,11 +6,10 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background: linear-gradient(to bottom, #14040f 0%, #030203 50%, #020202 100%);
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  margin: 0 auto;
   font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
 }
 
 h1 {
@@ -24,8 +23,7 @@ h1 {
   cursor: pointer;
   letter-spacing: 0.5rem;
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 h1:hover {
@@ -40,31 +38,59 @@ h1:hover {
 }
 
 .play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ff4fdb;
   cursor: pointer;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   border: 0;
 }
 
 .pause-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #31d7fa;
   cursor: pointer;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   border: 0;
 }
 
 .music-controls {
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+}
+
+.music-controls-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.light {
+  background-color: #feba6a;
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  display: inline;
+  filter: blur(400px) brightness(2) opacity(0.4);
+  z-index: -1;
 }
 
 @media (min-width: 768px) {
   h1 {
     font-size: 6rem;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1200px) {
+  h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
   }
 }

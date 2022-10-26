@@ -1,5 +1,5 @@
 import * as THREE from '/node_modules/three/build/three.module.js';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 // import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls';
 
 if (typeof window !== 'undefined') {
@@ -11,11 +11,17 @@ if (typeof window !== 'undefined') {
   const submitGuess = document.getElementById('submitGuess');
   const guess = document.getElementById('guess');
   const resetGame = document.getElementById('resetGame');
+  const livesPlayer = document.getElementById('livesPlayer');
+  const scorePlayer = document.getElementById('scorePlayer');
+
   let guessesCount = 1;
+  let lives = 10;
+  let score = 0;
 
   const checkGuess = (event) => {
     event.preventDefault();
     const guessPlayer = Number(guess.value);
+    scorePlayer.textContent = `Score: ${score}`;
 
     let message = 'Your previous guesses: ';
     if (guessesCount === 1) {
@@ -29,15 +35,19 @@ if (typeof window !== 'undefined') {
       lastResult.textContent = messageGuess;
       lowOrHigh.textContent = '';
       wonGameMusic.play();
-      gameOver();
+      livesPlayer.textContent = `${lives}`;
+      scorePlayer.textContent = `Score: ${score + 5}`;
     } else if (guessesCount === 10) {
       messageGuess = '💣 GAME OVER 💣';
       lastResult.textContent = messageGuess;
       lowOrHigh.textContent = '';
+      lives = 0;
       lostGameMusic.play();
       gameOver();
     } else {
       lastResult.textContent = 'Try again';
+      livesPlayer.textContent = `${lives - 1}`;
+      lives = lives - 1;
 
       if (guessPlayer < randomNumber) {
         lowOrHigh.textContent = 'Your guess was too low!';
@@ -55,12 +65,15 @@ if (typeof window !== 'undefined') {
   const gameOver = () => {
     guess.disabled = true;
     submitGuess.disabled = true;
+    lives = 0;
+    livesPlayer.textContent = ``;
     resetGame.innerText = 'Start game';
     resetGame.addEventListener('click', resetGuessGame);
   };
 
   const resetGuessGame = () => {
     guessesCount = 1;
+    lives = 10;
     const resetSpans = document.querySelectorAll('.results span');
     for (const resetSpan of resetSpans) {
       resetSpan.innerText = '';
@@ -70,6 +83,7 @@ if (typeof window !== 'undefined') {
     guess.value = '';
     guess.focus();
     randomNumber = Math.floor(Math.random() * 100) + 1;
+    lives = 10;
   };
   resetGame.addEventListener('click', resetGuessGame);
 
@@ -121,9 +135,9 @@ if (typeof window !== 'undefined') {
   window.addEventListener('resize', onWindowResize, false);
 
   function onWindowResize() {
-    renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
   }
 
   const sphereGeometry = new THREE.SphereGeometry(200, 200, 200);

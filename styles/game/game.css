@@ -1,6 +1,14 @@
 .game {
   position: absolute;
-  top: 0;
+  padding: 0 1rem;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .guess-form {
@@ -8,15 +16,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   text-align: center;
   gap: 2rem;
   background: linear-gradient(to left, #000000c7, #000000c7 50%, #000000c7 75%);
   padding: 3rem 0;
   border: 1px solid #ff4fdb;
+  box-shadow: 0px 30px 130px #8700df5c;
+}
+
+.lives-score {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: transparent;
+  width: 100%;
+}
+
+.lives,
+.score {
+  padding: 0 2rem;
+}
+
+.lives::before {
+  content: url('/images/lives.png');
 }
 
 .button-secondary {
-  margin-top: 6rem;
+  margin-top: 3.5rem;
 }
 
 .input {
@@ -31,9 +58,41 @@
   text-align: center;
   background-color: #ff4fdb;
   padding: 1rem 0;
+  border: 1px solid #ff4fdb;
+  width: 100%;
+  box-shadow: 0px 30px 130px #8700df5c;
 }
 
 .last-result {
   font-family: 'Retrolight', sans-serif;
   font-size: 2.5rem;
+}
+
+@media (orientation: landscape) and (max-width: 1200px) {
+  .guess-form {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .results {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .lives-score {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+  }
+
+  .guess-player {
+    width: 10rem;
+  }
+
+  .button-secondary {
+    margin-top: 0;
+    margin-right: 2rem;
+  }
 }
