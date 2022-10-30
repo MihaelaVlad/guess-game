@@ -128,6 +128,7 @@ if (typeof window !== 'undefined') {
   camera.position.z = 200;
   const renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setSize(innerWidth, innerHeight);
+  renderer.setPixelRatio(devicePixelRatio);
   document.body.appendChild(renderer.domElement);
 
   // new OrbitControls(camera, renderer.domElement);

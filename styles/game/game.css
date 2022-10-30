@@ -69,6 +69,10 @@
 }
 
 @media (orientation: landscape) and (max-width: 1200px) {
+  .game {
+    padding: 0 0.25rem;
+  }
+
   .guess-form {
     flex-direction: row;
     gap: 1rem;

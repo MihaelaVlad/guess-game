@@ -48,8 +48,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-
-        <div className="light"></div>
       </main>
 
       <footer></footer>
