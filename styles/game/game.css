@@ -1,6 +1,7 @@
 .game {
   position: absolute;
   padding: 0 1rem;
+  height: 100vh;
 }
 
 .game-container {
@@ -70,7 +71,11 @@
 
 @media (orientation: landscape) and (max-width: 1200px) {
   .game {
-    padding: 0 0.25rem;
+    padding: 0;
+  }
+
+  h1 {
+    display: none;
   }
 
   .guess-form {
@@ -78,10 +83,12 @@
     gap: 1rem;
   }
 
+  .guess-player {
+    display: none;
+  }
+
   .results {
-    flex-direction: row;
-    gap: 1rem;
-    padding: 0;
+    gap: 0.25rem;
   }
 
   .lives-score {

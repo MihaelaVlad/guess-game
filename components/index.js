@@ -83,6 +83,7 @@ if (typeof window !== 'undefined') {
     guess.value = '';
     guess.focus();
     randomNumber = Math.floor(Math.random() * 100) + 1;
+    livesPlayer.textContent = `${lives}`;
     lives = 10;
   };
   resetGame.addEventListener('click', resetGuessGame);
