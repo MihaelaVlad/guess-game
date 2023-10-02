@@ -100,13 +100,15 @@ if (typeof window !== 'undefined') {
 
   buttonMusicPause.addEventListener('click', function () {
     backgroundMusic.pause();
+    buttonMusicPause.classList.add('hide');
+    buttonMusicPlay.classList.remove('hide');
   });
 
   buttonMusicPlay.addEventListener('click', function () {
     backgroundMusic.play();
+    buttonMusicPause.classList.remove('hide');
+    buttonMusicPlay.classList.add('hide');
   });
-
-  backgroundMusic.play();
 
   const wonGameMusic = new Howl({
     src: ['game-win.wav'],

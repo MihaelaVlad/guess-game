@@ -98,3 +98,7 @@ h1:hover {
     flex-direction: column;
   }
 }
+
+.hide {
+  display: none;
+}

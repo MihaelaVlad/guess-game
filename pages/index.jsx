@@ -34,7 +34,7 @@ export default function Home() {
 
             <button
               id="musicPause"
-              className="pause-button"
+              className="pause-button hide"
               title="Pause music"
             >
               <Image
